@@ -18,7 +18,7 @@ function MainNavigation() {
         <ul className={classes.list}>
           {navTabs.map((tab) => {
             if (tab.title === "Authentication" && token) {
-              return;
+              return null;
             }
             return (
               <li>
