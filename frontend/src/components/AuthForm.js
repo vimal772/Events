@@ -8,6 +8,8 @@ import {
   useNavigation,
 } from "react-router-dom";
 
+import { Backend_url } from "../env.production";
+
 import classes from "./AuthForm.module.css";
 
 function AuthForm() {
@@ -66,7 +68,7 @@ export async function action({ request }) {
     password: formData.get("password"),
   };
 
-  const response = await fetch("http://localhost:8080/" + mode, {
+  const response = await fetch(`${Backend_url}${mode}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

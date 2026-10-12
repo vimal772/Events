@@ -7,6 +7,8 @@ import {
   redirect
 } from 'react-router-dom';
 
+import { Backend_url } from '../env.production';
+
 import classes from './EventForm.module.css';
 import { getAuthToken } from '../util/authToken';
 
@@ -95,11 +97,11 @@ export async function action({ request, params }) {
     description: data.get('description'),
   };
 
-  let url = 'http://localhost:8080/events';
+  let url = `${Backend_url}events`;
 
   if (method === 'PATCH') {
     const eventId = params.eventId;
-    url = 'http://localhost:8080/events/' + eventId;
+    url = `${Backend_url}events/${eventId}`;
   }
   const token = getAuthToken()
 
